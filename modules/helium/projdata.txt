@@ -1,0 +1,120 @@
+Helium is an interface library for Vendetta Online. It is intended to assist in the construction of more advanced, feedback-heavy interfaces, with light asyncronous options available
+
+
+
+
+
+file map:
+	
+	helium.lua
+		primary core of helium library, loads individual branches
+		
+	utilfunc.lua
+		contains utility functions that make helium work
+		
+	async.lua
+		contains basic async interface controls. Not dependent on MercuryLib's async or tasker functions
+		
+	primitives
+		contains the 'simple' iup structures and presets, like clear frames, cover buttons, etc
+		
+	constructs
+		contains the iup structures and presets that are made of multiple interactive elements. Functions to control parts should be found in the root node
+		
+		contruct_frames
+			contains the contruct features related to expansive frames, scrollers, and reactive tabs
+			
+		construct_misc
+			contains the generalized items for constructs
+		
+	gui_presets
+		contains complete dialogs to be used by other plugins
+		
+	color_picker
+		contains the color picker dialog, as well as the paint/color select and panel constructs. load after dragdrop.
+	
+	dragdrop
+		contains the drag_item/drag_target constructs. 
+
+
+
+
+
+
+
+
+class: 
+he/helium {
+	ver = version of this helium instance
+	path = path of this helium instance
+	util {
+		index_container()
+		map_dialog()
+		iup_prepend()
+		iup_insert()
+		
+		is_iup()
+		get_mouse_abs_pos()
+		scale_size()
+		scale_2x()
+	},
+	async {
+		async_index_container()
+		async_map_dialog()
+		async_prepend()
+		async_insert()
+	},
+	primitives {
+		clearframe()
+		solidframe()
+		borderframe()
+		highlite_panel()
+		page_rule()
+		progressbar()
+	},
+	constructs {
+		cover_button()
+		select_text()
+		link_text()
+		
+		ticker()
+		slide_toggle()
+		multi_button() --click to select next option
+		cycle_button() --nav buttons, click to exec option
+		radiocollect()
+		drag_item()
+		drag_target()
+		bgframe()
+		shrink_label()
+		
+		vslider()
+		hslider()
+		vexpandbox()
+		hexpandbox()
+		htablist()
+		vtablist()
+		vscroll()
+		hscroll()
+		scrollframe()
+		
+		paint_panel() --ship paint draggable preset panel
+		color_panel() --RGB color draggable preset panel
+		paint_select() --ship paint index picker as a frame
+		color_select() --RGB color picker
+	},
+	presets {
+		radial_menu()
+		readmenu()
+		context_container()
+		subdialog()
+		context_menu
+		alertbox()
+		list_select()		
+		color_diag()
+	},
+}
+
+
+paintselect/colorselect only show the current color (or a default), and a button to open a color_dialog to pick a new color. If opened by a paintselect, the rgb tab will be disabled.
+
+the paint/color panels show a static color, and provides feedback when clicked. the user can initiate a drag action from a panel to drop their respective color somewhere.
