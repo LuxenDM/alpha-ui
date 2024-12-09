@@ -1,5 +1,5 @@
 Alpha-UI is a LME-based replacement interface and support modules. The goals of Alpha-UI are
-• To create a minimal yet effective interface for day-to-day gameplay
+• To create a minimal yet effective interface for day-to-day gameplay on PC, large-format mobile, and VR devices
 • To provide an experimenting slate for the eventual creation of Quasar
 • To demonstrate the effectiveness of the LME system
 
