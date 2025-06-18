@@ -39,12 +39,13 @@ Using with DefaultUI:
 If AlphaUI is not selected as the current interface, you can still access the chat module as a standalone display. Use the command /auichat to open the window.
 
 
+(This roadmap was created in 2024 and may not match current goals, designs, or progress)
 Roadmap:
 =========================================================================
 [ ]: indev [in progress]
 	Concepting the interface and loading structure
 	Concepting and creation of support libraries
-	[x] Chat
+	[ ] Chat
 		required early; if the interface outright fails, it goes into an emergency mode where the user can access a text interface to execute commands as well as chat. This will also be provided as an independent "Console" interface.
 	[ ] Core backend
 		[ ] login, logout, char-select
@@ -75,9 +76,10 @@ Roadmap:
 			[ ] Group panel
 			[ ] Guild panel
 	[ ] HUD Primary
-		[ ] Radar1/self info/Radar2; screen bottom
-		[ ] Chat/Mission/self ship config; top left & center
-		[ ] Target detailed/sensor log; top right
+		[ ] Radar1/[addons and cargo, or chat, or mission info]/Radar2; screen bottom
+		[ ] Current target info; top center
+		[ ] sensor log; top right
+		[ ] BHUDBar module - quad-bar display for hull/energy/velocity/etc
 	[ ] Options
 		[ ] Primary menu
 			[ ] LME access
