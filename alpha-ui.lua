@@ -9,6 +9,8 @@ local cerr = function(msg)
 	return false, msg
 end
 
+local he = lib.get_class("helium", "0.5.0 -dev")
+
 cp("Alpha-UI is operationg out of " .. al_path)
 
 local private, public, config
@@ -50,8 +52,9 @@ dump_table = function(intable, depth, visited)
 end
 
 private = {
+	helium = he,
 	ver = lib.get_latest("alphaui"),
-	path = lib.get_path("alphaui", "0"),
+	path = lib.get_path("alphaui", "0"), --"plugins/alpha-ui/"
 	cp = cp,
 	cerr = cerr,
 	dump_table = dump_table,
@@ -70,6 +73,7 @@ private = {
 			if not file_f then
 				cerr("failed to load sub-file " .. file_path)
 				cerr("Error defined is " .. tostring(err))
+				lib.update_state("alphaui", he_ver, {complete = false})
 			else
 				--cp("private is " .. dump_table(private))
 				private, public, config = file_f(private, public, config)
@@ -145,6 +149,7 @@ update_class = function()
 end
 
 private.load_module("chatbox.lua")
+private.load_module("login.lua")
 
 
 
@@ -161,3 +166,6 @@ end
 update_class()
 
 lib.require({{name = "babel", version = "0"}}, babel_func)
+--[[
+	Issue: interface needs to be statically kept for performance. However, then it wouldn't update after babel loads. Make sure all interface generating elements support re-writing text on show.
+]]--

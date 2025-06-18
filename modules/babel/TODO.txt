@@ -1,7 +1,7 @@
 babel 1.2.0 update:
 
 revamp plugin functionality! 
-• load/reset class on call to support language update post-execution.
+✓ load/reset class on call to support language update post-execution.
 • make as distributable library
 • clean up un-needed logging
 • flatten functions

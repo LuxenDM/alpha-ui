@@ -16,6 +16,9 @@ private.chatbox = {
 		[-1] = "",
 		[0] = "",
 	},
+	recieved_pms = {
+		--todo
+	},
 	history_index = 0,
 }
 local public = file_args[2]
@@ -27,6 +30,9 @@ config.chatbox = {
 	text_length = gkrs("alphaui", "text_length", "10000"),
 	clear_on_login = gkrs("alphaui", "clear_on_login", "NO"),
 	default_channel = gkrs("alphaui", "chat_default_channel", "100"),
+	afk_response = gkrs("alphaui", "afk_response", "User is AFK"),
+	afk_cooldown = gkrs("alphaui", "afk_cooldown", "60"), --in seconds
+	
 	named_channels = {
 		["1"] = "Newbie/Help Chat",
 		["11"] = "Nation Chat",
@@ -35,7 +41,7 @@ config.chatbox = {
 	colors = {}, --read from config
 }
 
-local he = lib.get_class("helium", "0.5.0 -dev")
+local he = lib.get_class("helium", "1.0.0") --incorrect, add to private
 
 local init_events_list = {
 	--todo: functions can register new events and reset the chat reciever to handle custom inputs. There should be a non-event hook for this too
@@ -57,7 +63,7 @@ local init_events_list = {
 	"CHAT_MSG_SERVER_SECTOR",
 	"CHAT_MSG_SECTOR_EMOTE",
 	"CHAT_MSG_SECTOR",
-	"CHAT_MSG_GOBAL_SERVER",
+	"CHAT_MSG_GLOBAL_SERVER",
 	"CHAT_MSG_NATION",
 	"CHAT_MSG_SERVER_GUILD",
 	"CHAT_MSG_GUILD_EMOTE",
@@ -67,7 +73,7 @@ local init_events_list = {
 	"CHAT_MSG_GROUP",
 	"CHAT_MSG_GROUP_NOTIFICATION",
 	"CHAT_MSG_SYSTEM",
-	"CHAT_MSG_MISSION",
+	--"CHAT_MSG_MISSION",
 	"CHAT_MSG_SECTORD",
 	"CHAT_MSG_SECTORD_SECTOR",
 	"CHAT_MSG_SECTORD_MISSION",
@@ -602,7 +608,7 @@ public.chatbox.create_chat_view = function()
 		if msg_table.channelid then
 			msg = msg .. "[" .. tostring(msg_table.channelid) .. "]"
 		elseif string.find(msg_table.event, "GUILD") then
-			msg = msg .. "[" .. GetGuildAcronym() .. "]"
+			msg = msg .. "[" .. tostring(GetGuildAcronym()) .. "]"
 		elseif string.find(msg_table.event, "GROUP") then
 			msg = msg .. "[GROUP]"
 		elseif string.find(msg_table.event, "SECTOR") then
