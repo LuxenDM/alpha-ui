@@ -7,22 +7,37 @@ Alpha-UI is a LME-based replacement interface and support modules. The goals of 
 Requirements:
 =========================================================================
 The following plugins are required for AlphaUI to run
-• Neoloader, or another LME provider 
+• Neoloader, or another LME provider
+	Provides the management engine and core API for advanced plugin intercommunication and support
 	- (API 3.11.x or greater, but less than 4)
 • Helium
-	- (v0.5.x or greater)
+	Provides core interface generation tools
+	- (v1.0.0 or greater)
 	- (provided with package)
 • ReWidgets
-	- (v???)
+	Provides safe integration of interface elements
+	- (v1.0.0 or greater)
 	- (provided with package)
+• Better HUD Bars
+	Provides configurable HUD elements for tracking hull, shield, and energy
+	- (v1.0.0 or greater)
+	- (provided with package)
+• (Others as created)
 
 The following plugins are optional
 • Babel
+	pre-defined translation support (EN, ES, FR, PT machine translations provided by default)
 	- (v1.2.0 or greater)
 	- (provided with package)
 • EasyDoc
-	- (v???)
+	formatted text viewer for tag-searchable help manuals
+	- (v1.0.0)
 	- (provided with package)
+• Advanced Chainfire Automation Module
+	easy chainfire weapon management
+	- (v1.1.0 (or current))
+	- (not provided but optionally integrated)
+• (Others as integrated)
 
 
 Installation:
@@ -36,7 +51,7 @@ Your game will then reload with AlphaUI as the primary interface.
 
 Using with DefaultUI:
 =========================================================================
-If AlphaUI is not selected as the current interface, you can still access the chat module as a standalone display. Use the command /auichat to open the window.
+If AlphaUI is not selected as the current interface, you can still access the chat module and a few other interfaces as a standalone display.
 
 
 (This roadmap was created in 2024 and may not match current goals, designs, or progress)
